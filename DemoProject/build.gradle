@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'com.sample.portfolio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+bootJar {
+    launchScript()
+}
+
+task getJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Project Workflow Example',
+                'Implementation-Version': version,
+                'Main-Class': 'com.sample.portfolio.mydemosite.MyDemoSiteApplication'
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.228')
+    implementation 'com.amazonaws:aws-java-sdk-s3'
+    implementation 'com.amazonaws:aws-java-sdk-dynamodb'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
