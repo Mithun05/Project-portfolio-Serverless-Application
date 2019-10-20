@@ -1,6 +1,6 @@
 # Project-portfolio-Serverless-Application
 
-This sample project is serverless application developed using AWS API gateway, lambda, EC2, S3, DynamoDB.
+This sample project is serverless application developed using AWS API gateway, Lambda, EC2, S3, DynamoDB.
 Utilized the AWS SDK in Java.
 
 Architecture:
@@ -15,7 +15,7 @@ REST APIS AVAILABLE
 --------------------------------------
 
 1) Upload project description text file ----> uploads to S3  -----> returns the file url 
-2) Add the project description ---------> using the file url got in the first step  -----> downloads the file ------------> add to the database
+2) Add the project description ---------> using the file url got in the first step  -----> downloads the file ------------> add to the database 
 3) Get the project descriptions
 4) Update the project descriptions
 5) Delete the project descriptons
